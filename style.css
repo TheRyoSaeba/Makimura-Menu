@@ -98,7 +98,7 @@ section .signin .content .form
 	flex-direction: column;
 	gap: 25px;
 }
-section .signin .content .form .inputBx 
+section .signin .content .form .
 {
 	position: relative;
 	width: 100%;
@@ -153,12 +153,14 @@ section .signin .content .form .inputBx i
 .signin .content .form .inputBx input[type="submit"]
 {
 	padding: 10px;
-	background: #0f0;
-	color: #111;
-	font-weight: 600;
-	font-size: 1.25em;
-	letter-spacing: 0.05em;
-	cursor: pointer;
+    background: #0f0;
+    color: #111;
+    font-weight: 600;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    width: 100%; /* Add this line */
+    box-sizing: border-box; /* Add this line */
 }
 @media (max-width: 900px)
 {
