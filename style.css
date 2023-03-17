@@ -106,16 +106,17 @@ section .signin .content .form .
 section .signin .content .form .inputBx input 
 {
 	 position: relative;
-    width: 100%;
-    height: 70px; /* Add or adjust this line */
-    background: #333;
-    border: none;
-    outline: none;
-    padding: 0 10px; /* Adjust this line */
-    border-radius: 4px;
-    color: #fff;
-    font-weight: 500;
-    font-size: 1em;
+     position: relative;
+    width: 100% !important;
+    height: 40px !important;
+    background: #333 !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 10px !important;
+    border-radius: 4px !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 1em !important;
 }
 section .signin .content .form .inputBx i 
 {
@@ -153,16 +154,16 @@ section .signin .content .form .inputBx i
 }
 .signin .content .form .inputBx input[type="submit"]
 {
-	  height: 40px; /* Add or adjust this line */
-    padding: 0;
-    background: #0f0;
-    color: #111;
-    font-weight: 600;
-    font-size: 1.25em;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
+	 height: 40px !important;
+    padding: 0 !important;
+    background: #0f0 !important;
+    color: #111 !important;
+    font-weight: 600 !important;
+    font-size: 1.25em !important;
+    letter-spacing: 0.05em !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 @media (max-width: 900px)
 {
