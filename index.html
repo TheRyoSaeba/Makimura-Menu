@@ -302,10 +302,10 @@
     const submitButton = document.querySelector("#customLoginButton");
 
     function checkInputFields() {
-      if (emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
-        submitButton.disabled = false;
+      if (emailInput.value.includes("@") && passwordInput.value.length >= 3) {
+        submitButton.style.display = "block";
       } else {
-        submitButton.disabled = true;
+        submitButton.style.display = "none";
       }
     }
 
@@ -316,6 +316,7 @@
     checkInputFields();
   });
 </script>
+
 
 
    
