@@ -295,6 +295,27 @@
     </form>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const emailInput = document.querySelector("input[type='text']");
+    const passwordInput = document.querySelector("input[type='password']");
+    const submitButton = document.querySelector("#customLoginButton");
+
+    function checkInputFields() {
+      if (emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = true;
+      }
+    }
+
+    emailInput.addEventListener("input", checkInputFields);
+    passwordInput.addEventListener("input", checkInputFields);
+
+    // Initialize the state of the submit button
+    checkInputFields();
+  });
+</script>
 
 
    
