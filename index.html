@@ -300,5 +300,27 @@
   </div>
 </div>
  </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const emailInput = document.querySelector("input[type='text']");
+    const passwordInput = document.querySelector("input[type='password']");
+    const submitButton = document.querySelector("#customLoginButton");
+
+    function checkInputFields() {
+      if (emailInput.value.includes("@") && passwordInput.value.length >= 3) {
+        submitButton.style.display = "block";
+      } else {
+        submitButton.style.display = "none";
+      }
+    }
+
+    emailInput.addEventListener("input", checkInputFields);
+    passwordInput.addEventListener("input", checkInputFields);
+
+    // Initialize the state of the submit button
+    checkInputFields();
+  });
+</script>
 </body>
 </html>
