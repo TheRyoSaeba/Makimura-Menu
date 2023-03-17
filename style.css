@@ -107,7 +107,7 @@ section .signin .content .form .inputBx input
 {
 	 position: relative;
     width: 100%;
-    height: 40px; /* Add or adjust this line */
+    height: 70px; /* Add or adjust this line */
     background: #333;
     border: none;
     outline: none;
