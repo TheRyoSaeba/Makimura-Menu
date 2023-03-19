@@ -8,4 +8,7 @@ https://greasyfork.org/en/scripts/462039-cortanamatrix
  https://github.com/nonumbershere
  
  This code is almost certainly what triggered the ban, the submit function repeats on loop an insane amount 
- <img src="https://i.imgur.com/2POucw0.png"  width="250" height="250">
+ 
+ 
+ 
+ <img src="https://i.imgur.com/2POucw0.png"  width="400" height="400">
