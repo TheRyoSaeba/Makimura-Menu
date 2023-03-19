@@ -6,8 +6,8 @@ The .JS is a Userscript you can still using tampermonkey : https://greasyfork.or
  Lot of thanks to : https://github.com/nonumbershere  ; Helped me significantly 
  
  
- This code is almost certainly what triggered the ban, the submit function repeats on loop an insane amount 
+  
  
  
- 
+ This function Repeats an insane amount of Times, But you can just go into the Code, find where it's called and make sure it only repeats once per true .
  <img src="https://i.imgur.com/2POucw0.png"  width="400" height="400">
