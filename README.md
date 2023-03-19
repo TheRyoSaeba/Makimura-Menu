@@ -10,4 +10,4 @@ The .JS is a Userscript you can still using tampermonkey : https://greasyfork.or
  
  
  
- <img src="https://i.imgur.com/2POucw0.png"  width="700" height="700">
+ <img src="https://i.imgur.com/2POucw0.png"  width="400" height="400">
