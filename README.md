@@ -9,7 +9,7 @@ The .JS is a Userscript you can still using tampermonkey : https://greasyfork.or
   
  
  
- This  submit function Repeats an insane amount of Times, But you can just go into the Code, find where it's called and make sure it only repeats once per true .
  
  
- <img src="https://i.imgur.com/q3K4EFr.png"  width="800" height="800">
+ 
+ <img src="https://i.imgur.com/2eeYSwz.png"  width="800" height="800">
