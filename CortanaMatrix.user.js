@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CortanaMatrix
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      1.0
 // @description Mafiamatrix Trainer
 // @author       Cortana
 // @match        https://mafiamatrix.com/*
@@ -104,12 +104,7 @@ const Earn_ = tab.pages[0].addFolder({
   title: 'Earns',
   expanded: false,
 });
-Earn_.addBlade({
-  view: 'text',
-  label: 'Some label',
-  parse: (v) => String(v),
-  value: 'Some value',
-});
+
 
 const Agg_ = tab.pages[0].addFolder({
   title: 'Aggravated Crime',
@@ -126,10 +121,7 @@ const Drug_ = tab.pages[0].addFolder({
   expanded: false,
 });
 
-const Casino_ = tab.pages[0].addFolder({
-  title: 'Casino',
-  expanded: false,
-});
+
 
 const config_ = tab.pages[0].addFolder({
   title: 'Config',
@@ -138,26 +130,37 @@ const config_ = tab.pages[0].addFolder({
 
 
 
-// Add a new tab named "Restocks"
 const tab1 = pane.addTab({
   pages: [
     {title: 'Restocks'},
   ],
+    direction: 'horizontal',
 });
-const Dog_ = tab1.pages[0].addFolder({
-  title: 'Dog Pound ',
+// Add a page to the "Restocks" tab
+
+
+// Add a folder for "Dog Pound" to the "Restocks" page
+const dogFolder = tab1.pages[0].addFolder({
+  title: 'Dog Pound',
   expanded: false,
 });
 
-const Vehicle_ = tab1.pages[0].addFolder({
+
+// Add a folder for "Vehicle Restocks" to the "Restocks" page
+const vehicleFolder = tab1.pages[0].addFolder({
   title: 'Vehicle Restocks',
   expanded: false,
 });
 
-const Weps_ = tab1.pages[0].addFolder({
+const weaponFolder = tab1.pages[0].addFolder({
   title: 'Weapon Restocks',
   expanded: false,
 });
+
+ const casino_ = tab1.addPage({
+  title: 'Casino',
+});
+
 
     //load config checkbox
 var recaptchaValue = localStorage.getItem('recaptcha') === 'true';
@@ -293,48 +296,69 @@ setInterval(updateFilteredRadioButtonValues, 30 * 1000); // 30 seconds in millis
 
 
 async function performAutomaticEarn() {
-  for (let i = 0; i < 3; i++) {
-    // Check if the earn timer is ready
-    const isReady = await isEarnTimerReady();
-    if (isReady) {
-      console.log("The Earn timer is ready!");
+  // Check if the earn timer is ready
+  const isReady = await isEarnTimerReady();
+  if (isReady) {
+    console.log("The Earn timer is ready!");
 
-      // Get the selected earn from the dropdown (if available) or from local storage (if not)
-      const chosenEarn = localStorage.getItem('autoEarnChosenValue') || earnController.chosenEarn;
-      if (filteredRadioButtonValues.includes(chosenEarn)) {
-        // Create an iframe to access the earn page
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://mafiamatrix.com/income/earn.asp';
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
+    // Get the selected earn from the dropdown (if available) or from local storage (if not)
+    const chosenEarn = localStorage.getItem('autoEarnChosenValue') || earnController.chosenEarn;
+    if (filteredRadioButtonValues.includes(chosenEarn)) {
+      // Create an iframe to access the earn page
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://mafiamatrix.com/income/earn.asp';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
 
-        // Wait for the iframe to load
-        iframe.onload = function() {
-          // Access the iframe's document
-          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      // Wait for the iframe to load
+      iframe.onload = function() {
+        // Access the iframe's document
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-          // Click on the radio button for the chosen earn value
-          const earnRadio = iframeDoc.querySelector(`input[type=radio][value="${chosenEarn}"]`);
-          earnRadio.checked = true;
-          console.log('Chosen earn radio:', earnRadio);
+        // Click on the radio button for the chosen earn value
+        const earnRadio = iframeDoc.querySelector(`input[type=radio][value="${chosenEarn}"]`);
+        earnRadio.checked = true;
+        console.log('Chosen earn radio:', earnRadio);
 
-          // Submit the form
-          const workSubmit = iframeDoc.querySelector('[name="B1"]');
-          workSubmit.click();
-        };
-      } else {
-        console.log('Invalid autoEarnChosenValue:', chosenEarn);
-      }
+        // Submit the form
+        const workSubmit = iframeDoc.querySelector('[name="B1"]');
+        workSubmit.click();
 
-      break; // Stop checking the earn timer once it's ready
+        // Send a message to the main page that the form has been submitted
+        window.top.postMessage('earnFormSubmitted', '*');
+      };
     } else {
-      console.log("The Earn timer is not ready yet, waiting...");
-      // Wait for 10 seconds before checking again
-      await new Promise(resolve => setTimeout(resolve, 10000));
+      console.log('Invalid autoEarnChosenValue:', chosenEarn);
     }
+  } else {
+    console.log("The Earn timer is not ready yet, waiting...");
   }
 }
 
+window.addEventListener('message', async (event) => {
+  if (event.data === 'earnFormSubmitted') {
+    // Load the same page in a hidden iframe to get the updated timer value
+    const hiddenIframe = document.createElement('iframe');
+    hiddenIframe.src = window.location.href;
+    hiddenIframe.style.display = 'none';
+    document.body.appendChild(hiddenIframe);
+
+    // Wait for the hidden iframe to load
+    hiddenIframe.onload = function() {
+      // Access the hidden iframe's document
+      const hiddenIframeDoc = hiddenIframe.contentDocument || hiddenIframe.contentWindow.document;
+
+      // Get the updated timer value from the hidden iframe
+      const updatedTimerValue = hiddenIframeDoc.querySelector('form[name="earn"] .donation_timer').textContent;
+
+      // Update the timer element on the main page
+      document.querySelector('form[name="earn"] .donation_timer').textContent = updatedTimerValue;
+
+      // Remove the hidden iframe
+      document.body.removeChild(hiddenIframe);
+    };
+  }
+});
 function createDropdownAndCheckbox() {
   const dropdownOptions = filteredRadioButtonValues.map(value => {
     return { text: value, value: value };
@@ -377,17 +401,17 @@ const autoEarnCheckbox = Earn_.addInput(earnController, 'autoEarn', {
 let intervalId;
 intervalId = setInterval(function() {
   if (localStorage.getItem("autoEarn") == 'true') {
-   
+    performAutomaticEarn(); // Call performAutomaticEarn every 10 seconds if autoEarn is checked
   }
 }, 10000);
+
 autoEarnCheckbox.on('change', (value) => {
   console.log('Auto Earn checkbox changed:', value.value);
   localStorage.setItem('autoEarn', value.value);
-    localStorage.setItem('autoEarnChosenValue', earnController.chosenEarn);
+  localStorage.setItem('autoEarnChosenValue', earnController.chosenEarn);
   if (value.value) {
     console.log('Saved autoEarnChosenValue to local storage:', earnController.chosenEarn);
     performAutomaticEarn(); // run immediately when autoEarn is checked
-    // Call performAutomaticEarn every 5 seconds if autoEarn is checked
   }
 });
 
@@ -402,8 +426,8 @@ if (lastChosenEarnValue) {
 
 
     }
-  }
 
+}
 
 
 
