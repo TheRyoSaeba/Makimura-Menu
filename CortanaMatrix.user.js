@@ -33,11 +33,44 @@ pane.element.parentElement.style.position = "absolute";
 pane.element.parentElement.style.left = "62%";
 pane.element.parentElement.style.top = "40%";
 pane.element.parentElement.style.transform = "translateY(-50%)";
+
+
+// Calculate initial position in pixels
+const initialLeft = window.innerWidth * 0.62;
+const initialTop = window.innerHeight * 0.4;
+
+pane.element.parentElement.style.left = `${initialLeft}px`;
+pane.element.parentElement.style.top = `${initialTop}px`;
+
 // add a keyboard shortcut to show/hide the Tweakpane menu
 document.addEventListener('keydown', function(event) {
   if (event.code === 'Insert') {
     pane.element.children[0].click();
   }
+});
+
+ // make the Tweakpane menu draggable
+let drag = false;
+let offsetX, offsetY;
+
+pane.element.addEventListener('mousedown', (e) => {
+  drag = true;
+  offsetX = e.clientX - parseFloat(pane.element.parentElement.style.left);
+  offsetY = e.clientY - parseFloat(pane.element.parentElement.style.top);
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (drag) {
+    pane.element.parentElement.style.left = `${e.clientX - offsetX}px`;
+    pane.element.parentElement.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  drag = false;
+});
+document.addEventListener('mouseup', () => {
+  drag = false;
 });
 //style the menu
 var style = document.createElement('style');
@@ -59,27 +92,27 @@ style.innerHTML = `
   }
 
    :root {
-     --tp-base-background-color: hsla(240, 69%, 40%, 0.80);
-  --tp-base-shadow-color: hsla(0, 55%, 15%, 0.20);
-  --tp-button-background-color: hsla(0, 0%, 80%, 1.00);
-  --tp-button-background-color-active: hsla(0, 0%, 100%, 1.00);
-  --tp-button-background-color-focus: hsla(0, 0%, 95%, 1.00);
-  --tp-button-background-color-hover: hsla(0, 0%, 85%, 1.00);
-  --tp-button-foreground-color: hsla(0, 0%, 0%, 0.80);
-  --tp-container-background-color: hsla(0, 0%, 0%, 0.30);
-  --tp-container-background-color-active: hsla(0, 0%, 0%, 0.60);
-  --tp-container-background-color-focus: hsla(0, 0%, 0%, 0.50);
-  --tp-container-background-color-hover: hsla(0, 0%, 0%, 0.40);
-  --tp-container-foreground-color: hsla(0, 0%, 100%, 0.50);
-  --tp-groove-foreground-color: hsla(0, 0%, 0%, 0.20);
-  --tp-input-background-color: hsla(0, 0%, 0%, 0.30);
-  --tp-input-background-color-active: hsla(0, 0%, 15%, 0.30);
-  --tp-input-background-color-focus: hsla(0, 0%, 10%, 0.30);
-  --tp-input-background-color-hover: hsla(0, 0%, 5%, 0.30);
-  --tp-input-foreground-color: hsla(0, 0%, 100%, 0.50);
-  --tp-label-foreground-color: hsla(0, 0%, 100%, 0.50);
-  --tp-monitor-background-color: hsla(0, 0%, 0%, 0.30);
-  --tp-monitor-foreground-color: hsla(0, 0%, 100%, 0.30);
+      --tp-base-background-color: hsla(0, 1%, 13%, 1.00);
+    --tp-base-shadow-color: hsla(9, 62%, 60%, 1.00);
+    --tp-button-background-color: hsla(48, 94%, 52%, 1);
+    --tp-button-background-color-active: hsla(53, 100%, 62%, 1);
+    --tp-button-background-color-focus: hsla(48, 94%, 62%, 1);
+    --tp-button-background-color-hover: hsla(48, 94%, 72%, 1);
+    --tp-button-foreground-color: hsla(0, 0%, 100%, 1);
+    --tp-container-background-color: hsla(0, 0%, 0%, 0.3);
+    --tp-container-background-color-active: hsla(0, 0%, 0%, 0.6);
+    --tp-container-background-color-focus: hsla(0, 0%, 0%, 0.5);
+    --tp-container-background-color-hover: hsla(0, 0%, 0%, 0.4);
+    --tp-container-foreground-color: hsla(48, 94%, 52%, 1);
+    --tp-groove-foreground-color: hsla(48, 94%, 52%, 0.2);
+    --tp-input-background-color: hsla(0, 0%, 0%, 0.3);
+    --tp-input-background-color-active: hsla(0, 0%, 0%, 0.6);
+    --tp-input-background-color-focus: hsla(0, 0%, 0%, 0.5);
+    --tp-input-background-color-hover: hsla(0, 0%, 0%, 0.4);
+    --tp-input-foreground-color: hsla(48, 94%, 52%, 1);
+    --tp-label-foreground-color: hsla(0, 0%, 100%, 0.5);
+    --tp-monitor-background-color: hsla(0, 0%, 0%, 0.3);
+    --tp-monitor-foreground-color: hsla(48, 94%, 52%, 1);
   }
 
   .tweakpane-folder-header {
