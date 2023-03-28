@@ -1,7 +1,5 @@
 # CortanaMatrix
-This originally started as simple mafiamatrix script and bot , got started working on a MafiaMatrix modmenu before i got banned. 
-
-The .js is a userscript : https://greasyfork.org/en/scripts/462039-cortanamatrix
+Unfinished Mod Menu
  
  Lot of thanks to : https://github.com/nonumbershere  ; Helped me significantly 
  
