@@ -1,6 +1,6 @@
 MakimuraMatrix
 
-An unfinished Mod menu i was working on. 
+ A WIP Mod menu i occasionally work on . 
 
 
 ## Acknowledgements
@@ -31,8 +31,7 @@ An unfinished Mod menu i was working on.
 
 ## Installation
 
-It's pretty unfinished, was barely getting started  working on the framework,
- only have the earns actually (probably) worked out , but go ahead.
+Quite unfinished but 
 It's a chrome extension so i hope that tells you how to install it, but if not. 
 ```javascript
   Unzip MakimuraMatrix.zip
