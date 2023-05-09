@@ -20,10 +20,10 @@ MakimuraMatrix
 
 ## Previews
 
+ ![Animation](https://user-images.githubusercontent.com/31343426/237023587-e029c9e5-1d80-4fc9-a4b9-93f90c5f8246.gif)
+
+
  
-
- ![Animation](https://user-images.githubusercontent.com/31343426/228132413-7804064a-8b9a-4652-8be5-4cf67eff7ad1.gif)
-
  ![Screenshot 2023-03-28 000217](https://user-images.githubusercontent.com/31343426/228133237-de473122-9c7b-46c4-8c56-7163ed01fc21.png)
  
 
