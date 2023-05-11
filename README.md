@@ -1,6 +1,6 @@
 MakimuraMatrix
 
- A WIP Mod menu i occasionally work on . 
+ A WIP Mod menu for chrome  i occasionally work on . 
 
 
 ## Acknowledgements
