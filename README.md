@@ -24,7 +24,8 @@ MakimuraMatrix
  ![Imgur Image]([http://i.imgur.com/zTONrOD.jpg](https://imgur.com/a/Qifycy4))
 
  
- ![Screenshot 2023-03-28 000217](https://user-images.githubusercontent.com/31343426/228133237-de473122-9c7b-46c4-8c56-7163ed01fc21.png)
+  ![JzqiZVT](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/2e5e9195-ad49-477b-aad5-57290809d426)
+
  
 
  
