@@ -21,14 +21,11 @@ MakimuraMatrix
 ## Previews
 
  
- ![Imgur Image]([http://i.imgur.com/zTONrOD.jpg](https://imgur.com/a/Qifycy4))
-
  
-  ![JzqiZVT](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/2e5e9195-ad49-477b-aad5-57290809d426)
-
  
 
- 
+ ![Ci4X3QN](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/4e82518a-2e67-451e-bce6-0c4a1bf6667c)
+
 
 ## Installation
 
