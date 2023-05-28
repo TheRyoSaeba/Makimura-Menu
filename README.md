@@ -28,10 +28,10 @@ MakimuraMatrix
 Quite unfinished but 
 It's a chrome extension so i hope that tells you how to install it, but if not. 
 ```javascript
-  Unzip MakimuraMatrix.zip
+  Unzip MakimuraMatrixComplete.zip
   go to chrome://extensions
   Enable developer mode 
-  Drag and drop the MakimuraMatrix folder 
+  Drag and drop or load unpacked  the MakimuraMatrixComplete  folder 
   Say yes to whatever and that should be it 
 ```
 
