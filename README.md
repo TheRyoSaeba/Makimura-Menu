@@ -28,7 +28,7 @@ MakimuraMatrix
 Quite unfinished but 
 It's a chrome extension so i hope that tells you how to install it, but if not. 
 ```javascript
-  Download  MakimuraMatrix.zip
+  Download  MakimuraMenu.zip
   go to chrome://extensions
   Enable developer mode 
   Drag and drop the zip 
