@@ -10,6 +10,7 @@ MakimuraMatrix
 
 
  
+![carbon (1)](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/b892aa2d-151e-435c-ac74-b6bd505ee59a)
 
  
  
@@ -25,7 +26,7 @@ MakimuraMatrix
 
 ## Installation
 
-Quite unfinished but 
+
 It's a chrome extension so i hope that tells you how to install it, but if not. 
 ```javascript
   Download  MakimuraMenu.zip
