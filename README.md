@@ -38,7 +38,8 @@ It's a chrome extension so i hope that tells you how to install it, but if not.
   # Code Preview 
   This is one of my favorite parts of the menu...
   
-![ray-so-export](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/cf1d8cac-8899-42ab-8838-5f1b8773ee30)
+ 
+![ray-so-export (1)](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/1130ac80-1532-4ded-b123-aa654ec6f4b6)
 
  
 I recommend sticking to chromium based browsers since i've only really tested it there, firefox has some annoying security measures that prevent some functionality. 
