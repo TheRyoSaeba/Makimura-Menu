@@ -35,12 +35,7 @@ It's a chrome extension so i hope that tells you how to install it, but if not.
   Drag and drop the zip 
   Say yes to whatever and that should be it 
 ```
-  # Code Preview 
-  This is one of my favorite parts of the menu...
-  
- 
- ![ray-so-export (3)](https://github.com/TheRyoSaeba/Makimura-Menu/assets/31343426/83695140-a672-4584-abdc-dc1f57884045)
-
+   
  
  
 I recommend sticking to chromium based browsers since i've only really tested it there, firefox has some annoying security measures that prevent some functionality. 
